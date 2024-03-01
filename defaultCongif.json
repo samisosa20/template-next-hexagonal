@@ -1,0 +1,7 @@
+{
+  "button": {
+    "variant": "primary",
+    "rounded": "md",
+    "size": "small"
+  }
+}
