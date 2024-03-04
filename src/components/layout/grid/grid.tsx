@@ -43,10 +43,11 @@ const gridVariants = cva("grid", {
   compoundVariants: [],
 });
 
-type IGrid<T extends object> = GridVariants &
-  React.HTMLAttributes<HTMLElement> & {
-    component?: React.ElementType;
-  } & T;
+type IGrid<T extends object> = GridVariants & {
+  minWidth?: string;
+  maxWidth?: string;
+} & React.HTMLAttributes<HTMLElement> &
+  T;
 
 const Grid = forwardRef(
   <T extends object>(
@@ -54,27 +55,31 @@ const Grid = forwardRef(
       align,
       children,
       className,
-      component: Component = "div",
       justify,
       padding,
       spacing,
+      minWidth = "15rem",
+      maxWidth = "1fr",
       ...props
     }: IGrid<T>,
-    ref: React.Ref<HTMLFormElement>,
+    ref: React.Ref<HTMLDivElement>
   ) => {
     return (
-      <Component
+      <div
         ref={ref}
         className={cn(
           gridVariants({ align, spacing, justify, padding }),
-          className,
+          className
         )}
         {...props}
+        style={{
+          gridTemplateColumns: `repeat(auto-fill, minmax(min(100%, ${minWidth}), ${maxWidth}))`
+        }}
       >
         {children}
-      </Component>
+      </div>
     );
-  },
+  }
 );
 
 Grid.displayName = "Grid";

@@ -1,6 +1,11 @@
-import { Averia_Sans_Libre } from "next/font/google";
+import { Noto_Sans, Poppins } from "next/font/google";
 
-export const averia = Averia_Sans_Libre({
-  weight: ["300", "400", "700"],
+export const primaryFont = Noto_Sans({
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
+
+export const secondaryFont = Poppins({
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
 });

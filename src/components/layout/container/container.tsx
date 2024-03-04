@@ -3,6 +3,7 @@ import { cn } from "@/src/lib/utils";
 interface ContainerLayoutProps {
   children: React.ReactNode;
   size?: "xs" | "sm" | "md" | "lg" | "xl";
+  className?: string;
 }
 
 const style = {
@@ -15,9 +16,9 @@ const style = {
   },
 };
 
-export function Container({ children, size = "md" }: ContainerLayoutProps) {
+export function Container({ children, size = "md", className }: ContainerLayoutProps) {
   return (
-    <div className={cn(style.size[size], 'mx-auto w-full p-4 md:p-0')}>
+    <div className={cn(style.size[size], 'mx-auto w-full p-4 md:py-2', className)}>
       {children}
     </div>
   );

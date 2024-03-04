@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from './button';
+import { Container } from './container';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'Components/Button',
-  component: Button,
+  title: 'Components/Layouts/Container',
+  component: Container,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
@@ -14,46 +14,16 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
 
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof Container>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
+export const ContainerXs: Story = {
   args: {
-    variant: 'primary',
-    children: "Enviar"
+    size: 'xs',
+    children: "Hola mundo, esto es una prueba del tamaño del contenedor",
+    className: 'border w-full'
   },
 };
-
-export const Secondary: Story = {
-  args: {
-    variant: 'secondary',
-    children: "Cancelar",
-  },
-};
-
-export const Success: Story = {
-  args: {
-    variant: 'success',
-    children: "Guardar"
-  },
-};
-
-export const Danger: Story = {
-  args: {
-    variant: 'danger',
-    children: "Eliminar",
-    size: 'medium'
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    variant: 'primary',
-    children: "Continuar",
-    disabled: true
-  },
-};
-

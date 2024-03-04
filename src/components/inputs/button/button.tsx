@@ -5,7 +5,9 @@ import { cn } from "@/src/lib/utils";
 
 import defaultConfig from "@/defaultCongif.json"
 
-console.log(defaultConfig)
+type Variants = "primary" | "secondary" | "success" | "warning" | "danger" | "info" | "link" | null
+type Rounded = "none" | "sm" | "md" | "lg" | "full" | null
+type Size = "small" | "medium" | "large" | null
 
 const buttonVariants = cva(
   "flex gap-2 items-center w-max ",
@@ -13,10 +15,10 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: "bg-blue-500 hover:bg-violet-400",
-        secondary: "bg-transparent border border-neutral-500 hover:border-neutral-400",
+        secondary: "bg-transparent border border-neutral-500 hover:border-neutral-400 text-neutral-500 hover:text-neutral-400",
         success: "bg-green-500 hover:bg-green-400",
         warning: "bg-amber-500 hover:bg-amber-400",
-        danger: "bg-red-600 hover:bg-red-400",
+        danger: "bg-red-500 hover:bg-red-400",
         info: "bg-cyan-500 hover:bg-cyan-400",
         link: "bg-transparent text-sky-500 hover:text-sky-400",
       },
@@ -34,9 +36,9 @@ const buttonVariants = cva(
       }
     },
     defaultVariants: {
-      variant: defaultConfig.button.variant,
-      rounded: "md",
-      size: "small",
+      variant: defaultConfig.button.variant as Variants,
+      rounded:  defaultConfig.button.rounded as Rounded,
+      size:  defaultConfig.button.size as Size,
     },
   },
 );
@@ -54,7 +56,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(
           buttonVariants({ variant, className, rounded, size }),
           props.disabled &&
-            "bg-muted text-muted-foreground pointer-events-none",
+            "bg-muted text-neutral-200 pointer-events-none",
         )}
         ref={ref}
         {...props}
