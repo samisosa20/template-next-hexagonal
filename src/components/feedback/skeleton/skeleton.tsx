@@ -10,9 +10,7 @@ function Skeleton({
       aria-busy="true"
       className={cn(className, "inline-block")}
     >
-      <span className="inline-flex w-full leading-none bg-gray-300 rounded-md select-none animate-pulse">
-        ‌
-      </span>
+      <span className="inline-flex w-full leading-none bg-gray-300 rounded-md select-none animate-pulse min-h-4 h-full" />
       <br />
     </span>
   );
