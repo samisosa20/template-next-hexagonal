@@ -1,1 +1,6 @@
 export * from './typography'
+export * from './icons'
+export * from './pagination'
+export * from './card'
+export * from './table'
+export * from './dropdown'
