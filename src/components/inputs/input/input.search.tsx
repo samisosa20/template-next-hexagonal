@@ -7,7 +7,7 @@ import { debounce } from "@/src/lib/utils";
 import { Stack } from "../..";
 
 interface InputSearchProps {
-  children: (_args: { search: string }) => React.ReactNode;
+  children?: (_args: { search: string }) => React.ReactNode;
   placeholder?: string;
 }
 
@@ -24,7 +24,7 @@ export function InputSearch({
         className="max-w-72"
         onKeyUp={debounce((e) => setSearch(e.target.value), 1000)}
       />
-      {children({ search })}
+      {children && children({ search })}
     </Stack>
   );
 }
