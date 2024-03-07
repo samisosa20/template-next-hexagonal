@@ -1,0 +1,27 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [".env.*local"],
+  "globalDotEnv": [".env.local", ".env.test", ".env"],
+  "globalEnv": [
+    "NODE_ENV",
+    "NEXTAUTH_SECRET",
+    "NEXT_PUBLIC_APP_URL",
+    "NEXT_PUBLIC_API_URL"
+  ],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "test": {},
+    "test:watch": {
+      "cache": false
+    },
+    "lint": {},
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["^build"]
+    }
+  }
+}

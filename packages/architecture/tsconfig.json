@@ -1,0 +1,36 @@
+{
+  "extends": "tsconfig/nextjs.json",
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "target": "ES6",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+      "@feat/auth": [
+        "./features/auth/index.ts"
+      ],
+      "@feat/home": [
+        "./features/home/index.ts"
+      ],
+      "@shared/*": [
+        "./src/shared/*"
+      ],
+      "@lib/*": [
+        "./src/lib/*"
+      ],
+      "@src/*": [
+        "./src/*"
+      ]
+    },
+    "strictNullChecks": true
+  },
+}

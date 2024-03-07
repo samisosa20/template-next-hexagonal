@@ -3,7 +3,7 @@ import * as React from "react";
 
 import { cn } from "@/src/lib/utils";
 
-import defaultConfig from "@/defaultCongif.json"
+import defaultConfig from "@/defaultConfig.json"
 
 type Variants = "primary" | "secondary" | "success" | "warning" | "danger" | "info" | "link" | null
 type Rounded = "none" | "sm" | "md" | "lg" | "full" | null
