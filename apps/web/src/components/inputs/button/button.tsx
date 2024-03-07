@@ -10,11 +10,11 @@ type Rounded = "none" | "sm" | "md" | "lg" | "full" | null
 type Size = "small" | "medium" | "large" | null
 
 const buttonVariants = cva(
-  "flex gap-2 items-center w-max ",
+  "flex gap-2 items-center w-max",
   {
     variants: {
       variant: {
-        primary: "bg-blue-500 hover:bg-violet-400",
+        primary: "bg-primary hover:bg-violet-400 text-white",
         secondary: "bg-transparent border border-neutral-500 hover:border-neutral-400 text-neutral-500 hover:text-neutral-400",
         success: "bg-green-500 hover:bg-green-400",
         warning: "bg-amber-500 hover:bg-amber-400",
@@ -56,7 +56,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(
           buttonVariants({ variant, className, rounded, size }),
           props.disabled &&
-            "bg-muted text-neutral-200 pointer-events-none",
+            "bg-nuetral-500 text-neutral-200 pointer-events-none",
         )}
         ref={ref}
         {...props}

@@ -1,15 +1,19 @@
 import { cn } from "@/src/lib/utils";
 
-import { Stack, Typography } from "../..";
+import { Stack } from "../..";
+import { CardTitle } from "./card.title";
 
 
-export function Card({title, children}) {
-  return <Stack className="shadow rounded bg-white w-full">
-    <Stack direction="row" justify="spaceBetween" align="center" padding="xs">
-      <Typography variant="subtitle">{title}</Typography>
-    </Stack>
-    <Stack padding="xs">
+interface CardProps {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+export function Card({children, className}: CardProps) {
+  return <Stack className={cn("shadow rounded bg-white w-full", className)}>
       {children}
-    </Stack>
   </Stack>
 }
+
+Card.displayName = "Card";
+Card.Title = CardTitle;
