@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <Stack justify="center" align="center" className="w-screen h-screen">
+    <Stack justify="center" align="center" className="w-screen h-screen bg-primary">
         <Stack className="w-full max-w-md mx-auto">
             {children}
         </Stack>

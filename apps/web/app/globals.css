@@ -16,10 +16,6 @@
   }
 }
 
-body {
-  @apply bg-primary;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
