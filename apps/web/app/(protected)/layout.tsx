@@ -1,8 +1,7 @@
-import { Stack } from "@/src/components";
+import { Container, Grid, Stack, Nav } from "@/src/components";
 
 //import { HeaderAuthenticated } from "@/components/ui/surfaces/header";
 import { Header } from "./dashboard/_components/header";
-
 interface ProtectedLayoutProps {
   children: React.ReactNode;
 }
@@ -15,7 +14,11 @@ export default function ProtectedLayout({ children }: ProtectedLayoutProps) {
             <div></div>
           {/* <HeaderAuthenticated /> */}
         </Header>
-        {children}
+          <Nav>
+          <Container>
+            {children}
+          </Container>
+          </Nav>
       </Stack>
     );
 }

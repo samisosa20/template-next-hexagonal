@@ -34,7 +34,7 @@ export function Header({ children }: HeaderProps) {
 
   return (
     <motion.header className="sticky top-0 z-20 flex items-center h-16 border-none md:h-20 bg-white">
-      <div className="container flex justify-between md:justify-start items-center w-full px-4">
+      <div className="container flex justify-between md:justify-start items-center w-full px-4 mx-auto">
         <div className="md:hidden flex">
           <Stack
             className="w-6 h-6 p-0.5 cursor-pointer md:hidden flex"
