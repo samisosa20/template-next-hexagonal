@@ -29,7 +29,7 @@ type Story = StoryObj<typeof meta>;
 export const Input: Story = {
   render: () => {
     const [value, setValue] = useState('10')
-    return <Select value={value} onValueChange={(value)=> setValue(value)}>
+    return <Select value={value} onValueChange={(value: string)=> setValue(value)}>
       <SelectTrigger className="h-8 w-[70px]">
         <SelectValue placeholder={'10'} />
       </SelectTrigger>

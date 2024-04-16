@@ -1,10 +1,13 @@
 "use client";
 import React from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 import { cn } from "@/src/lib/utils";
-import { Accordion, AccordionContent, Icons, Stack } from "../..";
+import { Accordion, Icons, Stack } from "../..";
 
 import { links } from "@/public/mocks/dashboard-navigation";
+import { AccordionContent, AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
 
 interface NavProps {
   children: React.ReactNode;
@@ -12,6 +15,7 @@ interface NavProps {
 
 
 export function Nav({ children }: NavProps) {
+  const pathname = usePathname()
     const [isCollapsed, setIsCollapsed] = React.useState(false);
     const LevelMenu = pathname?.split("/").slice(1);
     
@@ -20,7 +24,7 @@ export function Nav({ children }: NavProps) {
       <Stack
         className={cn(
           "bg-white transition-all duration-300 ease-in-out fixed top-[6.5rem] left-0 h-[calc(100%-8rem)] rounded-tr-xl rounded-br-xl z-20",
-          isCollapsed ? "w-[52px]" : "w-[236px]"
+          isCollapsed ? "w-14" : "w-[236px]"
         )}
       >
         <Stack
@@ -29,7 +33,7 @@ export function Nav({ children }: NavProps) {
           }}
           className={cn(
             isCollapsed && "rotate-180",
-            "cursor-pointer transition-all duration-300 ease-in-out absolute top-0 mt-2 left-0 ml-3"
+            "cursor-pointer transition-all duration-300 ease-in-out absolute bottom-2 mt-2 left-0 ml-2"
           )}
         >
           <Icons.arrowCircle className="md:min-w-8" />
@@ -43,31 +47,19 @@ export function Nav({ children }: NavProps) {
                   <Link
                     href={link.href || "/dashboard"}
                     className={cn(
-                      buttonVariants({
-                        variant: link.href === pathname ? "default" : "ghost",
-                      }),
-                      "flex py-0 h-12 w-12",
+                      "flex py-0 h-12 w-14 justify-center items-center",
                       link.href &&
                         LevelMenu &&
                         LevelMenu?.length <= 2 &&
                         link.href
-                        ? pathname === link.href && "bg-accent/80"
+                        ? pathname === link.href && "bg-accent/80 rounded-r-xl"
                         : LevelMenu && link.href?.includes(LevelMenu[1])
-                          ? "bg-accent/80"
+                          ? "bg-accent/80 rounded-r-xl"
                           : "bg-transparent",
-                      link?.hideDesktop && "md:hidden"
                     )}
-                    onClick={() => {
-                      isMobile && setIsOpen(false);
-                    }}
+                    onClick={() => {}}
                   >
-                    <Image
-                      src={link.icon}
-                      alt="Icon"
-                      className="w-6 h-6 min-w-6"
-                      width={32}
-                      height={32}
-                    />
+                    <link.icon color="#000000" className="w-6 h-6 min-w-6"/>
                     <span className="sr-only">{link.title}</span>
                   </Link>
                 ) : (
@@ -80,42 +72,26 @@ export function Nav({ children }: NavProps) {
                         : {
                             component: Link,
                             href: link.href,
-                            onClick: () => {
-                              isMobile && setIsOpen(false);
-                            },
+                            onClick: () => {},
                           })}
                       direction="row"
                       className={cn(
-                        link.href &&
-                          buttonVariants({
-                            variant: pathname?.includes(link.href)
-                              ? "secondary"
-                              : "ghost",
-                          }),
                         "bg-transparent",
-
                         link.href &&
                           LevelMenu &&
                           LevelMenu?.length <= 2 &&
                           link.href
-                          ? pathname === link.href && "bg-accent/80"
+                          ? pathname === link.href && "bg-accent/80 rounded-r-xl"
                           : LevelMenu && link.href?.includes(LevelMenu[1])
-                            ? "bg-accent/80"
+                            ? "bg-accent/80 rounded-r-xl"
                             : "bg-transparent",
 
                         link.children && "hover:no-underline",
                         "w-full justify-between text-foreground h-12 px-2 hover:text-foreground",
-                        link?.hideDesktop && "md:hidden"
                       )}
                     >
                       <Stack direction="row" align="center" spacing="2xs">
-                        <Image
-                          src={link.icon}
-                          alt="Icon"
-                          className="w-6 h-6 min-w-6"
-                          width={32}
-                          height={32}
-                        />
+                        <link.icon color="#000000" className="w-6 h-6 min-w-6"/>
                         {link.title}
 
                         {link.label && (
@@ -127,26 +103,18 @@ export function Nav({ children }: NavProps) {
                     </Stack>
 
                     {link.children && (
-                      <Stack className="pb-0">
+                      <Stack className="pb-0" component={AccordionContent}>
                         {link.children?.map((child, index) => (
                           <Link
                             key={index}
                             href={child.href}
                             className={cn(
-                              buttonVariants({
-                                variant: "ghost",
-                              }),
-                              typographyVariants({
-                                variant: "overline",
-                              }),
-                              "justify-start h-9 hover:underline pl-10 hover:bg-accent/30",
+                              "flex items-center h-9 hover:underline pl-10 hover:bg-accent/30",
                               pathname?.includes(child.href)
                                 ? "text-accent-foreground"
                                 : "text-muted-foreground hover:text-muted-foreground"
                             )}
-                            onClick={() => {
-                              isMobile && setIsOpen(false);
-                            }}
+                            onClick={() => {}}
                           >
                             {child.title}
                           </Link>

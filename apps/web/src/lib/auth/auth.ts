@@ -8,7 +8,7 @@ export const authOptions: NextAuthOptions = {
   },
   callbacks: {
     async jwt({ token, user, account }) {
-      return token;
+      return {token};
       /* if (account?.provider === "credentials" && token.sub) {
         // token.completedTopics = user.completedTopics
         if ("completedTopics" in user) {

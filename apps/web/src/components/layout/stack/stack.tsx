@@ -56,7 +56,9 @@ const stackVariants = cva("flex", {
 });
 
 type IStack<T extends object> = StackVariants &
-  React.HTMLAttributes<HTMLElement> & T;
+  React.HTMLAttributes<HTMLElement> & {
+    component?: React.ElementType;
+  } & T;
 
 const Stack = forwardRef(
   <T extends object>(
@@ -64,6 +66,7 @@ const Stack = forwardRef(
       align,
       children,
       className,
+      component: Component = "div",
       direction,
       justify,
       padding,
@@ -74,7 +77,7 @@ const Stack = forwardRef(
     ref: React.Ref<HTMLDivElement>,
   ) => {
     return (
-      <div
+      <Component
         ref={ref}
         className={cn(
           stackVariants({ direction, align, spacing, justify, padding, wrap }),
@@ -83,7 +86,7 @@ const Stack = forwardRef(
         {...props}
       >
         {children}
-      </div>
+      </Component>
     );
   },
 );
