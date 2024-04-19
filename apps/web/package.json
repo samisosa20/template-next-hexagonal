@@ -31,8 +31,8 @@
     "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-google-charts": "^4.0.1",
     "react-hook-form": "^7.51.0",
-    "react-icons": "^5.1.0",
     "tailwind-merge": "^2.2.1",
     "zod": "^3.22.4"
   },

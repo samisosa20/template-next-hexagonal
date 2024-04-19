@@ -56,7 +56,7 @@ export function HeaderAuthenticated() {
   );
 }
 
-function UserInformation() {
+export function UserInformation() {
   //const { data: user } = useAuthProfileList();
   const user = {
     firstName: 'Henrique',

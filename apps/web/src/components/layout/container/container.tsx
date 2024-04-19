@@ -18,7 +18,7 @@ const style = {
 
 export function Container({ children, size = "md", className }: ContainerLayoutProps) {
   return (
-    <div className={cn(style.size[size], 'mx-auto w-full p-4 md:py-2', className)}>
+    <div className={cn(style.size[size], 'mx-auto w-full p-4 md:py-6', className)}>
       {children}
     </div>
   );

@@ -7,7 +7,7 @@ interface CardProps {
   
 
 export function CardTitle({children}: CardProps) {
-    return     <Stack direction="row" justify="spaceBetween" align="center" padding="xs">
-    <Typography variant="subtitle">{children}</Typography>
+    return     <Stack direction="row" justify="spaceBetween" align="center">
+    <Typography weight={500} variant="h4" family="secondary">{children}</Typography>
   </Stack>
 }

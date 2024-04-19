@@ -1,26 +1,27 @@
-import { IoHome, IoDocument } from "react-icons/io5";
+import { BookTextIcon, HomeIcon } from "lucide-react";
+
 
 export const links = [
   {
     title: "Mi compañia",
     label: "",
-    icon: IoHome,
+    icon: HomeIcon,
     href: "/dashboard",
     enabled: true,
   },
   {
     title: "Facturacion",
     label: "",
-    icon: IoDocument,
-    href: "/dashboard/regulacion",
+    icon: BookTextIcon,
+    href: "",
     children: [
       {
         title: "Indicadores",
-        href: "/dashboard/regulacion/congreso",
+        href: "/dashboard/facturacion/indicadores",
       },
       {
         title: "TAC Pedidos",
-        href: "/dashboard/regulacion/gobierno",
+        href: "/dashboard/facturacion/tac-pedidos",
       },
     ],
     enabled: true,

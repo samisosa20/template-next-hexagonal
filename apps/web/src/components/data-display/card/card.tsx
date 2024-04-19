@@ -10,7 +10,7 @@ interface CardProps {
 }
 
 export function Card({children, className}: CardProps) {
-  return <Stack className={cn("shadow rounded bg-white w-full", className)}>
+  return <Stack padding="sm" className={cn("shadow-lg rounded bg-white w-full", className)}>
       {children}
   </Stack>
 }
